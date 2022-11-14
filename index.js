@@ -2,7 +2,7 @@ const countries=document.querySelector(".main")
 const dropDown=document.querySelector(".dropdown")
 const dropElem=document.querySelector(".drop")
 const region=document.querySelectorAll(".region")
-
+const search=document.querySelector(".search")
 
 // all country displayed in the main
 async function getCountry(){
@@ -24,7 +24,7 @@ function showCountry(data){
                   <img src="${data.flags.png}" alt="">
                </div>
                <div class="country-info">
-                    <h5>${data.name.common}</h5>
+                    <h5 class="countryName">${data.name.common}</h5>
                     <p><strong>Population :</strong>${data.population}</p>
                     <p class="regionName"><strong>Region :</strong>${data.region}</p>
                     <p><strong>Capital :</strong>${data.capital}</p>
@@ -39,7 +39,7 @@ dropDown.addEventListener("click",()=>{
 //    console.log("click")
 })
 
-//inside dropdown functionally
+//Filter functionality by region-->inside dropdown functionally
 const regionName=document.getElementsByClassName("regionName")
 region.forEach(e=>{
     e.addEventListener("click",()=>{
@@ -54,5 +54,20 @@ region.forEach(e=>{
             elem.parentElement.parentElement.style.display="none"
         }
        })
+    })
+})
+
+
+// search by country
+const countryName=document.getElementsByClassName("countryName")
+search.addEventListener("input",()=>{
+    // console.log(search.value)
+    Array.from(countryName).forEach(elem=>{
+        if(elem.innerText.toLowerCase().includes(search.value.toLowerCase())){
+            elem.parentElement.parentElement.style.display="grid"
+        }
+        else{
+            elem.parentElement.parentElement.style.display="none"
+        }
     })
 })
