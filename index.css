@@ -104,13 +104,13 @@ button{
 .main{
     padding:30px;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
+    grid-gap: 15px;
 }
 .country{
-    min-height: 300px;
+    min-height: 270px;
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
-    width:300px;
+    width:270px;
     border-radius: 5px;
     overflow: hidden;
 }
